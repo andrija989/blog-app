@@ -9,6 +9,7 @@
         <ul>
           <li v-for="(comment,index) in post.comments" :key="index">
             {{comment.text}}
+            <div>{{ formatDate(comment.createdAt,'MMMM Do YYYY, h:mm:ss a') }}</div>
           </li>
         </ul>
     </div>
@@ -17,8 +18,11 @@
 <script>
 import { postsService } from '@/services/PostsService'
 import AddComment from '@/components/AddComment'
+import { dataMixin } from  '@/mixins/mixin'
 
 export default {
+  mixins: [dataMixin],
+
   components: {
     AddComment
   },
