@@ -2,8 +2,9 @@
     <div>
         <ul>
             <li v-for="(post,index) in posts" :key="index">
-                <h3>{{post.title}}</h3>
-                <p>{{post.text}}</p>
+                <single-post
+                :post="post" 
+                />
             </li>
         </ul>
     </div>
@@ -11,8 +12,13 @@
 
 <script>
 import { postsService } from '@/services/PostsService'
+import SinglePost from '@/components/SinglePost'
 
 export default {
+    components: {
+        SinglePost
+    },
+
     data() {
         return {
             posts:[]
@@ -28,6 +34,8 @@ export default {
             console.log(e)
         })
     },
+
+    
 }
 </script>
 
