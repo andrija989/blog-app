@@ -3,11 +3,11 @@
         <form @submit.prevent="handleForm">
             <div>
                 <label for="title">Title</label>
-                <input type="text" id="title" v-model="newPost.title" required>
+                <input type="text" id="title" v-model="newPost.title" required minlength="2">
             </div>
             <div>
                 <label for="text">Body</label>
-                <input type="text" id="text" v-model="newPost.text" required>
+                <input type="text" id="text" v-model="newPost.text" required maxlength="300">
             </div>
             <button type="submit">Post</button>
             <button type="reset">Reset form</button>
