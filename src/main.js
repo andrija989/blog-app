@@ -7,10 +7,12 @@ Vue.use(VueRouter)
 import AppPosts from './components/AppPosts'
 import SinglePost from './components/SinglePost'
 import SinglePostView from './components/SinglePostView'
+import AddPost from './components/AddPost'
 
 const routes = [
   { path:'/posts',component:AppPosts},
-  { path:'/post/:id',component:SinglePostView}
+  { path:'/post/:id',component:SinglePostView},
+  { path:'/add',component:AddPost}
 ]
 
 const router = new VueRouter({
