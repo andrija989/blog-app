@@ -33,6 +33,10 @@ export default class PostsService {
                 console.log(e)
             })
     }
+
+    delete(id) {
+        return axios.delete(`posts/${id}`)
+    }
 }
 
 export const postsService = new PostsService();

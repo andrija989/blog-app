@@ -5,6 +5,7 @@
                 <single-post
                 :post="post" 
                 />
+                <button @click="handleDelete(post.id)">Delete</button>
             </li>
         </ul>
     </div>
@@ -34,6 +35,15 @@ export default {
             console.log(e)
         })
     },
+
+    methods: {
+        handleDelete(id) {
+            return postsService.delete(id)
+                .then(response => {
+                    this.posts = this.posts.filter(post => post.id !== id)
+                })
+        }
+    }
     
 
     

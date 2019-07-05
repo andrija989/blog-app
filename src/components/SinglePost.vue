@@ -18,7 +18,8 @@ export default {
 
     routeToEdit(id) {
       return `/edit/${id}`
-    }
+    },
+    
   }
 };
 </script>
