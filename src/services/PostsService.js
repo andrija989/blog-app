@@ -14,9 +14,19 @@ export default class PostsService {
     }
 
     add(newPost) {
-        return axios.post('posts',newPost)
+        return axios.post(`posts`,newPost)
             .then(response => {
                 this.posts = this.posts.filter(post => post.id !== id)
+                console.log(response)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+    }
+
+    edit(id, newPost) {
+        return axios.put(`posts/${id}`,newPost)
+            .then(repsonse => {
                 console.log(response)
             })
             .catch(e => {

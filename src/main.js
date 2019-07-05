@@ -12,6 +12,7 @@ import AddPost from './components/AddPost'
 const routes = [
   { path:'/posts',component:AppPosts},
   { path:'/post/:id',component:SinglePostView},
+  { path:'/edit/:id',component:AddPost},
   { path:'/add',component:AddPost}
 ]
 

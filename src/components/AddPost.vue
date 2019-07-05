@@ -10,7 +10,7 @@
                 <input type="text" id="text" v-model="newPost.text" required maxlength="300">
             </div>
             <button type="submit">Post</button>
-            <button type="reset">Reset form</button>
+            <button @click="reset">Reset form</button>
         </form>
     </div>
 </template>
@@ -24,12 +24,18 @@ export default {
             newPost : {
                 title : '',
                 text : ''
-            }
+            },
+            id : ''
         }
     },
 
     methods: {
         handleForm() {
+            if(this.id) {
+                postsService.edit(this.id,this.newPost)
+                this.$router.push('/posts')
+                return
+            }
             postsService.add(this.newPost)
             this.$router.push('/posts')
             
@@ -40,6 +46,19 @@ export default {
                 title:'',
                 text:''
             }
+        }
+    },
+    created() {
+        this.id = this.$router.currentRoute.params.id;
+        if(this.id) {
+            postsService.getSinglePost(this.id)
+            .then(response => {
+                console.log(response)
+                this.newPost = response.data
+            })
+            .catch(e => {
+                console.log(e)
+            })
         }
     }
 }
